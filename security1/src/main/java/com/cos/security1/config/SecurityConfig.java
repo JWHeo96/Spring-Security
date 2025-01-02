@@ -41,7 +41,7 @@ public class SecurityConfig {
 		http.formLogin(form -> form
 				.loginPage("/loginForm")
 				.loginProcessingUrl("/login") // login 주소가 호출이 되면 시큐리티가 낚아채서 대신 로그인을 진행해줍니다.
-				.defaultSuccessUrl("/") // 이전 요청에 대한 url을 보관하여 보내줌
+				.defaultSuccessUrl("/user") // 이전 요청에 대한 url을 보관하여 보내줌
 			);
 		
 		// 1.코드받기(인증)
@@ -51,7 +51,7 @@ public class SecurityConfig {
 		// 4-2. (이메일, 전화번호, 이름, 아이디) 쇼핑몰 -> (집주소)
 		http.oauth2Login(login -> login
 				.loginPage("/loginForm") 
-				.defaultSuccessUrl("/test/oauth/login")
+				.defaultSuccessUrl("/user")
 				.userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint 
 						.userService(principalOauth2UserService)) // 구글 로그인이 완료된 뒤의 후처리가 필요함. Tipe. 코드X, (엑세스토큰+사용자프로필정보 O)
 			); 
