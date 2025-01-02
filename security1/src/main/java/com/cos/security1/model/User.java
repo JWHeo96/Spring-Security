@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +19,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User {
 
+	@Builder
+	public User(String username, String password, String email, String role, String provider, String providerId,
+			Timestamp createDate) {
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.role = role;
+		this.provider = provider;
+		this.providerId = providerId;
+		this.createDate = createDate;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
