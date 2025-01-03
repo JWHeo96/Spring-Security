@@ -1,12 +1,15 @@
 package com.cos.jwt.filter;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class MyFilter1 implements Filter {
 
@@ -14,7 +17,7 @@ public class MyFilter1 implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-		System.out.println("필터 1");
-		chain.doFilter(request, response); // 프로세스를 진행해라
+		//System.out.println("필터1");
+		chain.doFilter(request, response);
 	}
 }
